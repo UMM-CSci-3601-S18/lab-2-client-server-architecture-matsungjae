@@ -31,11 +31,5 @@ public class FullTodoListFromDB {
     assertEquals( "Incorrect Status",false, firstTodo.status);
     assertEquals( "Incorrect body","In sunt ex non tempor cillum commodo amet incididunt anim qui commodo quis. Cillum non labore ex sint esse.", firstTodo.body);
     assertEquals( "Incorrect category","software design", firstTodo.category);
-
-    /*"_id": "58895985a22c04e761776d54",
-      "owner": "Blanche",
-      "status": false,
-      "body": "In sunt ex non tempor cillum commodo amet incididunt anim qui commodo quis. Cillum non labore ex sint esse.",
-      "category": "software design"*/
   }
 }
