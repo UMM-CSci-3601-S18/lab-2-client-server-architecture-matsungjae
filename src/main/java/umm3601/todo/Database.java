@@ -50,6 +50,13 @@ public class Database {
       filteredTodos = filterTodosByStatus(filteredTodos, status);
     }
 
+    //Sort alphabetically by a field
+    if(queryParams.containsKey("orderBy")) {
+      String field = queryParams.get("orderBy")[0];
+
+      sortTodos(filteredTodos, field);
+    }
+
     // limit the number of items displayed
     if(queryParams.containsKey("limit")) {
       int limit = Integer.parseInt(queryParams.get("limit")[0]);
@@ -81,8 +88,15 @@ public class Database {
     return Arrays.stream(todos).filter(x -> x.owner.equals(targetOwner)).toArray(Todo[]::new);
   }
 
-  public Todo[] sortTodosByCategory(Todo[] todos) {
-    Arrays.sort(todos, new sortByCategory());
+  public Todo[] sortTodos(Todo[] todos, String field) {
+
+    switch (field) {
+      case "category" : {
+        Arrays.sort(todos, new sortByCategory());
+        return todos;
+      }
+    }
     return todos;
+
   }
 }
