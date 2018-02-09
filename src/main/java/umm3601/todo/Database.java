@@ -33,12 +33,20 @@ public class Database {
       String targetCategory = queryParams.get("category")[0];
       filteredTodos = filterTodosByCategory(filteredTodos, targetCategory);
     }
-    // Process other query parameters here...
+    // Filter by a string contained in the body
+    if(queryParams.containsKey("body")) {
+      String targetString = queryParams.get("body")[0];
+      filteredTodos = filterTodosByBody(filteredTodos, targetString);
+    }
 
     return filteredTodos;
   }
 
   public Todo[] filterTodosByCategory(Todo[] Todos, String targetCategory) {
     return Arrays.stream(Todos).filter(x -> x.category.equals(targetCategory)).toArray(Todo[]::new);
+  }
+
+  public Todo[] filterTodosByBody(Todo[] todos, String targetString) {
+    return Arrays.stream(todos).filter(x -> x.body.contains(targetString)).toArray(Todo[]::new);
   }
 }
