@@ -91,8 +91,8 @@ public class Database {
   /***
    * Sorts the array of todos by the field given in the string. If the field given in the string is not something that
    * can be sorted, then the array is returned unsorted.
-   * @param todos
-   * @param field
+   * @param todos array to be sorted
+   * @param field which field to sort by
    * @return the sorted array
    */
   public Todo[] sortTodos(Todo[] todos, String field) {
@@ -112,6 +112,5 @@ public class Database {
       }
     }
     return todos;
-
   }
 }
