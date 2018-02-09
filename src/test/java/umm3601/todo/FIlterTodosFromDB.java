@@ -61,5 +61,15 @@ public class FIlterTodosFromDB {
     }
   }
 
+  @Test
+  public void setStatusOfTodos(){
+    Todo[] statusCompleteTodos = db.filterTodosByStatus(allTodos, true);
+    assertEquals("Incorrect status of todos", 143, statusCompleteTodos.length);
+
+    Todo[] statusIncompleteTodos = db.filterTodosByStatus(allTodos, false);
+    assertEquals("Incorrect status of todos", 157, statusIncompleteTodos.length);
+  }
+
+
 
 }

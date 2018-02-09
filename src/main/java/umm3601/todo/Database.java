@@ -50,6 +50,12 @@ public class Database {
       filteredTodos = limitTodos(filteredTodos, limit);
     }
 
+    if(queryParams.containsKey("status")){
+      boolean status = Boolean.parseBoolean(queryParams.get("status")[0]);
+      filteredTodos = filterTodosByStatus(filteredTodos, status);
+    }
+
+
     return filteredTodos;
   }
 
@@ -68,6 +74,11 @@ public class Database {
     }
     return filteredTodos;
   }
+
+  public Todo[] filterTodosByStatus(Todo[] todos, boolean status) {
+    return Arrays.stream(todos).filter(x -> x.status == status).toArray(Todo[]::new);
+  }
+
 
   public Todo[] filterTodosByOwner(Todo[] todos, String targetOwner) {
     return Arrays.stream(todos).filter(x -> x.owner.equals(targetOwner)).toArray(Todo[]::new);
