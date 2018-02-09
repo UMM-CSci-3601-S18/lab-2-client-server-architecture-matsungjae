@@ -38,6 +38,11 @@ public class Database {
       String targetString = queryParams.get("body")[0];
       filteredTodos = filterTodosByBody(filteredTodos, targetString);
     }
+    // limit the number of items displayed
+    if(queryParams.containsKey("limit")) {
+      int limit = Integer.parseInt(queryParams.get("limit")[0]);
+      filteredTodos = limitTodos(filteredTodos, limit);
+    }
 
     return filteredTodos;
   }
@@ -48,5 +53,13 @@ public class Database {
 
   public Todo[] filterTodosByBody(Todo[] todos, String targetString) {
     return Arrays.stream(todos).filter(x -> x.body.contains(targetString)).toArray(Todo[]::new);
+  }
+
+  public Todo[] limitTodos(Todo[] todos, int limit) {
+    Todo[] filteredTodos = new Todo[limit];
+    for (int i = 0; i < limit; i++) {
+      filteredTodos[i] = todos[i];
+    }
+    return filteredTodos;
   }
 }

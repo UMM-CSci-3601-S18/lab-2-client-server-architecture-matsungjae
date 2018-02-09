@@ -1,5 +1,6 @@
 package umm3601.todo;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -8,10 +9,18 @@ import java.util.HashMap;
 import static junit.framework.TestCase.assertEquals;
 
 public class FIlterTodosFromDB {
+
+  Database db;
+  Todo[] allTodos;
+
+  @Before
+  public void setup() throws IOException {
+    db = new Database("src/main/data/todos.json");
+    allTodos = db.listTodos(new HashMap<>());
+  }
+
   @Test
-  public void filterTodosByCategory() throws IOException {
-    Database db = new Database("src/main/data/todos.json");
-    Todo[] allTodos = db.listTodos(new HashMap<>());
+  public void filterTodosByCategory() {
 
     Todo[] software_designTodos = db.filterTodosByCategory(allTodos, "software design");
     assertEquals("Incorrect category of software design", 74, software_designTodos.length);
@@ -21,9 +30,7 @@ public class FIlterTodosFromDB {
   }
 
   @Test
-  public void filterTodosByBody() throws IOException {
-    Database db = new Database("src/main/data/todos.json");
-    Todo[] allTodos = db.listTodos(new HashMap<>());
+  public void filterTodosByBody() {
 
     Todo[] cillumTodos = db.filterTodosByBody(allTodos, "cillum");
     assertEquals("Incorrect number of todos containing 'cillum'", 72, cillumTodos.length);
@@ -32,6 +39,16 @@ public class FIlterTodosFromDB {
     Todo[] adipisicingTodos = db.filterTodosByBody(allTodos, "adipisicing");
     assertEquals("Incorrect number of todos containing 'adipisicing'", 86, adipisicingTodos.length);
 
+  }
+
+  @Test
+  public void limitNumberOfTodos() {
+
+    Todo[] only7Todos = db.limitTodos(allTodos, 7);
+    assertEquals("Incorrect number of todos", 7, only7Todos.length);
+
+    Todo[] only50Todos = db.limitTodos(allTodos, 50);
+    assertEquals("Incorrect number of todos", 50, only50Todos.length);
   }
 
 
