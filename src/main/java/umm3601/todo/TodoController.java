@@ -53,7 +53,7 @@ public class TodoController {
    * @param res the HTTP response
    * @return a success JSON object containing all the users
    */
-  public JsonObject getUsers(Request req, Response res) {
+  public JsonObject getTodos(Request req, Response res) {
     res.type("application/json");
     Todo[] todos = database.listTodos(req.queryMap().toMap());
     return buildSuccessJsonResponse("users", gson.toJsonTree(todos));
