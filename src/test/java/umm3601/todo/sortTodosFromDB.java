@@ -65,4 +65,16 @@ public class sortTodosFromDB {
     }
 
   }
+
+  @Test
+  public void sortTodosByStatus() {
+    sortedTodos = db.sortTodos(sortedTodos, "status");
+
+    Boolean[] expected = {false, false, false, false, true, true, true, true, true, true};
+    //make sure each category is as expected
+    for (int i = 0; i < 10; i++) {
+      assertEquals("Incorrect Status", expected[i], sortedTodos[i].status);
+    }
+
+  }
 }

@@ -110,6 +110,10 @@ public class Database {
         Arrays.sort(todos, new sortByBody());
         return todos;
       }
+      case "status" : {
+        Arrays.sort(todos, new sortByStatus());
+        return todos;
+      }
     }
     return todos;
   }
