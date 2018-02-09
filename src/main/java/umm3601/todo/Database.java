@@ -88,11 +88,26 @@ public class Database {
     return Arrays.stream(todos).filter(x -> x.owner.equals(targetOwner)).toArray(Todo[]::new);
   }
 
+  /***
+   * Sorts the array of todos by the field given in the string. If the field given in the string is not something that
+   * can be sorted, then the array is returned unsorted.
+   * @param todos
+   * @param field
+   * @return the sorted array
+   */
   public Todo[] sortTodos(Todo[] todos, String field) {
 
     switch (field) {
       case "category" : {
         Arrays.sort(todos, new sortByCategory());
+        return todos;
+      }
+      case "owner" : {
+        Arrays.sort(todos,new sortByOwner());
+        return todos;
+      }
+      case "body" : {
+        Arrays.sort(todos, new sortByBody());
         return todos;
       }
     }
