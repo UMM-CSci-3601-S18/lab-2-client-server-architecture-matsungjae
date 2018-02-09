@@ -51,5 +51,15 @@ public class FIlterTodosFromDB {
     assertEquals("Incorrect number of todos", 50, only50Todos.length);
   }
 
+  @Test
+  public void filterTodosByOwner() {
+    Todo[] blancheTodos = db.filterTodosByOwner(allTodos, "Blanche");
+    assertEquals("Incorrect number of Todos owned by Blanche",43, blancheTodos.length);
+
+    for (Todo todo : blancheTodos) {
+      assertEquals("Incorrect Owner", "Blanche", todo.owner);
+    }
+  }
+
 
 }
