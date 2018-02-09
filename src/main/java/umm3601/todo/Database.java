@@ -44,17 +44,17 @@ public class Database {
       filteredTodos = filterTodosByOwner(filteredTodos, targetOwner);
     }
 
-    // limit the number of items displayed
-    if(queryParams.containsKey("limit")) {
-      int limit = Integer.parseInt(queryParams.get("limit")[0]);
-      filteredTodos = limitTodos(filteredTodos, limit);
-    }
-
+    //Filter by status
     if(queryParams.containsKey("status")){
       boolean status = Boolean.parseBoolean(queryParams.get("status")[0]);
       filteredTodos = filterTodosByStatus(filteredTodos, status);
     }
 
+    // limit the number of items displayed
+    if(queryParams.containsKey("limit")) {
+      int limit = Integer.parseInt(queryParams.get("limit")[0]);
+      filteredTodos = limitTodos(filteredTodos, limit);
+    }
 
     return filteredTodos;
   }
@@ -69,9 +69,7 @@ public class Database {
 
   public Todo[] limitTodos(Todo[] todos, int limit) {
     Todo[] filteredTodos = new Todo[limit];
-    for (int i = 0; i < limit; i++) {
-      filteredTodos[i] = todos[i];
-    }
+    System.arraycopy(todos, 0, filteredTodos, 0, limit);
     return filteredTodos;
   }
 
@@ -79,8 +77,12 @@ public class Database {
     return Arrays.stream(todos).filter(x -> x.status == status).toArray(Todo[]::new);
   }
 
-
   public Todo[] filterTodosByOwner(Todo[] todos, String targetOwner) {
     return Arrays.stream(todos).filter(x -> x.owner.equals(targetOwner)).toArray(Todo[]::new);
+  }
+
+  public Todo[] sortTodosByCategory(Todo[] todos) {
+    Arrays.sort(todos, new sortByCategory());
+    return todos;
   }
 }
