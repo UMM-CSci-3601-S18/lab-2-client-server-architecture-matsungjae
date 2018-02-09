@@ -25,7 +25,7 @@ public class FullTodoListFromDB {
     Database db = new Database("src/main/data/todos.json");
     Todo[] allTodos = db.listTodos();
     Todo firstTodo = allTodos[0];
-    //TODO: tests for firstTodo
+
     assertEquals( "Incorrect ID","58895985a22c04e761776d54", firstTodo._id);
     assertEquals( "Incorrect Owner","Blanche", firstTodo.owner);
     assertEquals( "Incorrect Status",false, firstTodo.status);
