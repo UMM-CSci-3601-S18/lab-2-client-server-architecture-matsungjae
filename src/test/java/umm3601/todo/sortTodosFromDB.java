@@ -22,7 +22,8 @@ public class sortTodosFromDB {
   public void sortTodosByCategory() {
     sortedTodos = db.sortTodos(sortedTodos, "category");
 
-    String[] expected = {"groceries", "homework", "homework", "homework", "homework", "software design", "software design", "software design", "video games", "video games"};
+    String[] expected = {"groceries", "homework", "homework", "homework", "homework",
+      "software design", "software design", "software design", "video games", "video games"};
 
     //make sure each category is as expected
     for (int i = 0; i < 10; i++) {
@@ -71,7 +72,7 @@ public class sortTodosFromDB {
     sortedTodos = db.sortTodos(sortedTodos, "status");
 
     Boolean[] expected = {false, false, false, false, true, true, true, true, true, true};
-    //make sure each category is as expected
+    //make sure each status is as expected
     for (int i = 0; i < 10; i++) {
       assertEquals("Incorrect Status", expected[i], sortedTodos[i].status);
     }
