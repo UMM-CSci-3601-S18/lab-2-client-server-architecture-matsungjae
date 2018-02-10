@@ -1,5 +1,5 @@
 /**
- * Function to get all the users!
+ * Function to get all the todos!
  */
 function getAllTodos() {
   console.log("Getting all the todos.");
@@ -19,24 +19,24 @@ function getFilteredTodos() {
 
   //filter by category
   var category = document.getElementById("category").value;
-  if (category != null && category != "") {
+  if (category != null && category !== "") {
     finalUrl += "category=" + category + "&";
   }
   //filter by body
   var body = document.getElementById("body").value;
-  if (body != null && body != "") {
+  if (body != null && body !== "") {
     finalUrl += "body=" + body + "&";
   }
   //filter by owner
   var owner = document.getElementById("owner").value;
-  if (owner != null && owner != "") {
+  if (owner != null && owner !== "") {
     finalUrl += "owner=" + owner + "&";
   }
-  //filter by status
+  /*//filter by status
   var status = document.getElementById("status").value;
   if (status != null && status != "") {
     finalUrl += "owner=" + status + "&";
-  }
+  }*/
   //sort alphabetically by a something
   //limit number of todos displayed
 

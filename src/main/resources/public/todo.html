@@ -9,10 +9,13 @@
 <body>
 <button type="button" id="getAll">Get All Todos</button>
 <hr/>
-<div id="jsonGO" style="margin-top:20px"> Json will go here </div>
-category: <input id="category" type= "text" name="category">
-<button type="button" id="getFiltered"> get todos by category </button>
 
+category: <input id="category" type= "text" name="category">
+body: <input id="body" type="text" name="body">
+owner: <input id="owner" type="text" name="owner">
+<button type="button" id="getFiltered"> Filter </button>
+
+<div id="jsonGO" style="margin-top:20px"> Json will go here </div>
 <script>
   window.onload = function() {
     console.log("The page is loaded now!");
