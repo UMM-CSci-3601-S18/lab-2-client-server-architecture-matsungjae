@@ -10,11 +10,13 @@ function getAllTodos() {
   });
 }
 
-function getFilteredUsers() {
+function getFilteredTodos() {
   console.log("Getting all the users.");
 
   var HttpThingy = new HttpClient();
   var finalUrl = "/api/users?";
+  //each filter will be concatenated onto the string (ex: finalUrl += "category=homework&"
+
   //filter by category
   //filter by body
   //filter by owner
@@ -23,7 +25,7 @@ function getFilteredUsers() {
   //limit number of todos displayed
 
   HttpThingy.get(finalUrl, function(returned_json){
-    document.getElementById('jsonDump').innerHTML = returned_json;
+    document.getElementById('jsonGO').innerHTML = returned_json;
   });
 }
 
