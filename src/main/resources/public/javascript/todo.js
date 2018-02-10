@@ -14,14 +14,30 @@ function getFilteredTodos() {
   console.log("Getting all the users.");
 
   var HttpThingy = new HttpClient();
-  var finalUrl = "/api/users?";
+  var finalUrl = "/api/todos?";
   //each filter will be concatenated onto the string (ex: finalUrl += "category=homework&"
 
   //filter by category
+  var category = document.getElementById("category").value;
+  if (category != null && category != "") {
+    finalUrl += "category=" + category + "&";
+  }
   //filter by body
+  var body = document.getElementById("body").value;
+  if (body != null && body != "") {
+    finalUrl += "body=" + body + "&";
+  }
   //filter by owner
+  var owner = document.getElementById("owner").value;
+  if (owner != null && owner != "") {
+    finalUrl += "owner=" + owner + "&";
+  }
   //filter by status
-  //sort alphabetically by a category
+  var status = document.getElementById("status").value;
+  if (status != null && status != "") {
+    finalUrl += "owner=" + status + "&";
+  }
+  //sort alphabetically by a something
   //limit number of todos displayed
 
   HttpThingy.get(finalUrl, function(returned_json){
