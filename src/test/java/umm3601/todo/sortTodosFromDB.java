@@ -4,12 +4,16 @@ import org.junit.*;
 
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
 public class sortTodosFromDB {
   Database db;
   Todo[] sortedTodos;
+
+  //This could be rewritten to use a Hashmap queryparams to get more coverage,
+  //but that would take some time. Should have done that from the beginning.
 
   @Before
   public void setup()throws IOException{
@@ -77,5 +81,20 @@ public class sortTodosFromDB {
       assertEquals("Incorrect Status", expected[i], sortedTodos[i].status);
     }
 
+  }
+
+  @Test
+  public void sortTodosByOwnerUsingHashmap() {
+    HashMap<String, String[]> queryParams = new HashMap<>();
+    queryParams.put("orderBy", new String[] {"owner"});
+    queryParams.put("limit", new String[] {"10"});
+    sortedTodos = db.listTodos(queryParams);
+
+    //make sure each owner is as expected
+    //all todos will be Barry, since the database sorts before returning the
+    //limited number of todos
+    for (int i = 0; i < 10; i++) {
+      assertEquals("Incorrect Owner", "Barry", sortedTodos[i].owner);
+    }
   }
 }
