@@ -44,10 +44,19 @@ public class Database {
       filteredTodos = filterTodosByOwner(filteredTodos, targetOwner);
     }
 
-    //Filter by status
+    //Filter by status (complete = true, incomplete = false)
     if(queryParams.containsKey("status")){
-      boolean status = Boolean.parseBoolean(queryParams.get("status")[0]);
-      filteredTodos = filterTodosByStatus(filteredTodos, status);
+      String strStatus = queryParams.get("status")[0];
+      Boolean status = null;
+      if (strStatus.equals("complete")) {
+        status = true;
+      }
+      else if (strStatus.equals("incomplete")) {
+        status = false;
+      }
+      if (status != null) {
+        filteredTodos = filterTodosByStatus(filteredTodos, status);
+      }
     }
 
     //Sort alphabetically by a field
