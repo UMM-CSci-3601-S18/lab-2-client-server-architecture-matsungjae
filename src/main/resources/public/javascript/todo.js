@@ -32,11 +32,13 @@ function getFilteredTodos() {
   if (owner != null && owner !== "") {
     finalUrl += "owner=" + owner + "&";
   }
-  /*//filter by status
-  var status = document.getElementById("status").value;
-  if (status != null && status != "") {
-    finalUrl += "owner=" + status + "&";
-  }*/
+  //filter by status
+  if (document.getElementById("complete").checked === true) {
+    finalUrl += "status=complete&";
+  }
+  else if (document.getElementById("incomplete").checked === true) {
+    finalUrl += "status=incomplete&";
+  }
   //sort alphabetically by a something
   //limit number of todos displayed
 

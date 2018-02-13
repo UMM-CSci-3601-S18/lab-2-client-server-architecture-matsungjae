@@ -10,9 +10,15 @@
 <button type="button" id="getAll">Get All Todos</button>
 <hr/>
 
-category: <input id="category" type= "text" name="category">
-body: <input id="body" type="text" name="body">
-owner: <input id="owner" type="text" name="owner">
+Category: <input id="category" type= "text" name="category">
+Body: <input id="body" type="text" name="body">
+Owner: <input id="owner" type="text" name="owner"> <br>
+Status: <br>
+  <input id="complete" type="radio" name="status" value="complete"> Complete <br>
+  <input id="incomplete" type="radio" name="status" value="incomplete"> Incomplete <br>
+  <input id="no selection" type="radio" name="status" value="no selection" checked> No selection
+
+
 <button type="button" id="getFiltered"> Filter </button>
 
 <div id="jsonGO" style="margin-top:20px"> Json will go here </div>
