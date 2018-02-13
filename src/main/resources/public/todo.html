@@ -12,13 +12,21 @@
 
 Category: <input id="category" type= "text" name="category">
 Body: <input id="body" type="text" name="body">
-Owner: <input id="owner" type="text" name="owner"> <br>
+Owner: <input id="owner" type="text" name="owner">
+Sort By: <select id="orderBy">
+  <option selected>Sort By</option>
+  <option value="category">Category</option>
+  <option value="body">Body</option>
+  <option value="owner">Owner</option>
+  <option value="status">Status</option>
+</select>
+  <br>
 Status: <br>
   <input id="complete" type="radio" name="status" value="complete"> Complete <br>
   <input id="incomplete" type="radio" name="status" value="incomplete"> Incomplete <br>
   <input id="no selection" type="radio" name="status" value="no selection" checked> No selection
 
-
+<br>
 <button type="button" id="getFiltered"> Filter </button>
 
 <div id="jsonGO" style="margin-top:20px"> Json will go here </div>
