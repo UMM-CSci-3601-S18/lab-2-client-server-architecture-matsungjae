@@ -46,6 +46,7 @@ function getFilteredTodos() {
   }
   //limit number of todos displayed
 
+
   HttpThingy.get(finalUrl, function(returned_json){
     document.getElementById('jsonGO').innerHTML = returned_json;
   });

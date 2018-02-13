@@ -71,5 +71,18 @@ public class FilterTodosUsingHashMap {
 
   }
 
+  @Test
+  public void listTodosWithManyFilters() {
+    queryParams.put("name", new String[] {"Fry"});
+    queryParams.put("status", new String[] {"complete"});
+    queryParams.put("body", new String[] {"cillum"});
+    queryParams.put("category", new String[] {"groceries"});
+
+    Todo[] filteredTodos = db.listTodos(queryParams);
+
+    assertEquals("Incorrect number of filtered todos", 11, filteredTodos.length);
+
+  }
+
 
 }
