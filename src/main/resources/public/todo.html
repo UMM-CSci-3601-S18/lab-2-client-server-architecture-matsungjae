@@ -30,6 +30,124 @@ Status: <br>
 <button type="button" id="getFiltered"> Filter </button>
 
 <div id="jsonGO" style="margin-top:20px"> Json will go here </div>
+
+
+
+<nav id="topMenu" >
+  <ul>
+    <li class="topMenuLi">
+      <a class="menuLink" href="http://localhost:4567./aboutus">ABOUT US</a>
+      <ul class="submenu">
+        <li><a href="http://localhost:4567./aboutus" class="submenuLink longLink">ONE</a></li>
+        <li><a href="http://localhost:4567./aboutus" class="submenuLink longLink">TWO</a></li>
+        <li><a href="http://localhost:4567./aboutus" class="submenuLink longLink">THREE</a></li>
+      </ul>
+    </li>
+
+        <li>|</li>
+    <li class="topMenuLi">
+      <a class="menuLink" href="http://localhost:4567./guestbook">GUEST BOOK</a>
+    </li>
+
+        <li>|</li>
+    <li class="topMenuLi">
+      <a class="menuLink" href="http://localhost:4567./tag">TAG CLOUD</a>
+      <ul class="submenu">
+        <li><a href="http://localhost:4567./tag" class="submenuLink"> javaScript</a></li>
+        <li><a href="http://localhost:4567./tag" class="submenuLink"> lecture</a></li>
+        <li><a href="http://localhost:4567./tag" class="submenuLink">project</a></li>
+      </ul>
+    </li>
+
+        <li>|</li>
+    <li class="topMenuLi">
+      <a class="menuLink" href="http://localhost:4567./media">MEDIA LOG</a>
+    </li>
+
+        <li>|</li>
+    <li class="topMenuLi">
+      <a class="menuLink" href="http://localhost:4567./location">LOCATION LOG</a>
+    </li>
+      </ul>
+</nav>
+
+
+<style>
+  #topMenu {
+    height: 30px; width: 850px;
+  }
+
+  #topMenu ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #topMenu ul li {
+    color: white;
+    background-color: #2d2d2d;
+    float: left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+  }
+
+  .menuLink, .submenuLink {
+    text-decoration:none;
+    display: block;
+    width: 150px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Dotum;
+  }
+
+  .menuLink {
+    color: white;
+  }
+
+  .topMenuLi:hover .menuLink {
+    color: red;
+    background-color: #4d4d4d;
+  }
+
+  .longLink {
+    width: 190px;
+  }
+
+  .submenuLink {
+    color: #2d2d2d;
+    background-color: white;
+    border: solid 1px black;
+    margin-right: -1px;
+  }
+
+  .submenu {
+    position: absolute;
+    height: 0px;
+    overflow: hidden;
+    transition: height .2s;
+    -webkit-transition: height .2s;
+    -moz-transition: height .2s;
+    -o-transition: height .2s;
+    width: 574px;
+  }
+
+  .submenu li {
+    display: inline-block;
+  }
+
+  .topMenuLi:hover .submenu {
+    height: 32px;
+  }
+
+  .submenuLink:hover {
+    color: red;
+    background-color: #dddddd;
+  }
+</style>
+
+
 <script>
   window.onload = function() {
     console.log("The page is loaded now!");
