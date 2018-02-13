@@ -40,6 +40,10 @@ function getFilteredTodos() {
     finalUrl += "status=incomplete&";
   }
   //sort alphabetically by a something
+  var orderBy = document.getElementById("orderBy").value;
+  if(orderBy != null && orderBy !== "") {
+    finalUrl += "orderBy=" + orderBy + "&";
+  }
   //limit number of todos displayed
 
   HttpThingy.get(finalUrl, function(returned_json){
