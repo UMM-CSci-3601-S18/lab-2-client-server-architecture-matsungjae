@@ -44,7 +44,12 @@ function getFilteredTodos() {
   if(orderBy != null && orderBy !== "") {
     finalUrl += "orderBy=" + orderBy + "&";
   }
+
   //limit number of todos displayed
+  var limit = document.getElementById("limit").value;
+  if(limit != null && limit !== 0) {
+    finalUrl += "limit=" + limit;
+  }
 
 
   HttpThingy.get(finalUrl, function(returned_json){
